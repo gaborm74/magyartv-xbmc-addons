@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<addon
+  id="plugin.video.magyartvk.hu"
+  version="0.0.3"
+  name="Magyar TVk"
+  provider-name="gm74"
+  >
+  <requires>
+    <import addon="xbmc.python" version="1.0" />
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py" >
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+    <summary>Élő tv streamek és videótárak</summary>
+    <description>* Élő: ATV, Duna, Duna Autonómia, m1, m2, Hír TV\n * Videótár: m1-m2, TV2, Viasat3, Duna.</description>
+  </extension>
+</addon>
