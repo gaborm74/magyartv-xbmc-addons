@@ -1,5 +1,9 @@
 ﻿import urllib,urllib2,re,xbmcplugin,xbmcgui
 
+import xbmcaddon
+__settings__ = xbmcaddon.Addon(id="plugin.video.magyartvk.hu")
+
+
 # Magyar TVk - by gm74 2010.
 
 userAgent = 'Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.9.1.7) Gecko/20091221 Firefox/3.5.7 (.NET CLR 3.5.30729)'
@@ -245,7 +249,7 @@ post=None
 url=None
 name=None
 mode=None
-imageDir = 'special://home/plugins/video/Magyar TV/resources/images/'
+imageDir = __settings__.getAddonInfo("profile")+'/resources/images/'
 
 try:
         url=urllib.unquote_plus(params["url"])
