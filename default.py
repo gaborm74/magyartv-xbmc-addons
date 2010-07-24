@@ -1,8 +1,8 @@
-﻿import urllib,urllib2,re,xbmcplugin,xbmcgui
+﻿print 'script - start'
+import urllib,re,xbmcplugin,xbmcgui, xbmcaddon
+print 'imports - done'
 
-import xbmcaddon
 __settings__ = xbmcaddon.Addon(id="plugin.video.magyartvk.hu")
-
 
 # Magyar TVk - by gm74 2010.
 
@@ -24,9 +24,9 @@ def CATEGORIES(url):
 		
                        
 def MAININDEX(url,vod):
-	req = urllib2.Request(url)
-	req.add_header('User-Agent', userAgent)
-	response = urllib2.urlopen(req)
+	#agent = urllib.urlopener()
+	#agent.addheader('User-Agent', userAgent)
+	response = urllib.urlopen(url)
 	link=response.read()
 	response.close()
 	if vod == 'mtv':
@@ -242,14 +242,17 @@ def htmlEntityDecode(s):
 		s = s.replace("&"+entity+";", aEntities[entity])
 	return s
 
+print 'get params - start'
 params=get_params()
+print 'get params - end'
 
+print 'set params - start'
 vod=None
 post=None
 url=None
 name=None
 mode=None
-imageDir = __settings__.getAddonInfo("profile")+'/resources/images/'
+imageDir = __settings__.getAddonInfo("profile")+'resources/images/'
 
 try:
         url=urllib.unquote_plus(params["url"])
@@ -271,6 +274,7 @@ try:
         post=urllib.unquote_plus(params["post"])
 except:
         pass
+print 'set params - end'
 
 print "Mode: "+str(mode)
 print "URL: "+str(url)
@@ -278,6 +282,7 @@ print "Name: "+str(name)
 print "VOD: "+str(vod)
 print "post: "+str(post)
 
+print 'select operation - start'
 if mode==0:
         #print ""+url
         CATEGORIES(url)
@@ -304,9 +309,13 @@ elif mode==21:
         #print ""+post
         VIDEOLINKSNEXT(url,name,vod,post)
 else:
+	print 'addir - start'
 	addDir('Élő','live',0,imageDir+'tv_stream.jpg','')
 	addDir('Videótár','vod',0,'','')
+	print 'addir - end'
+print 'select operation - end'
 
 
 
 xbmcplugin.endOfDirectory(int(sys.argv[1]))
+print 'script - end'
