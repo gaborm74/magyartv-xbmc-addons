@@ -1,0 +1,12 @@
+
+2010-08-06 by gm74
+  
+  # Version 0.0.5 released
+  
+    * Fixed MTV VOD
+    * Fixed TV2 VOD
+    
+    + Added ATV VOD
+
+    - Viasat3 VOD removed due to site is down
+    - DunaTV VOD disabled due to site revamp
