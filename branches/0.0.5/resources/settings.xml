@@ -1,0 +1,7 @@
+<settings>
+   <setting id="enable_debug" type="bool" label="Debug bekapcsolása" default="false"/>
+   <setting type="sep"/>
+   <setting id="use_proxy" type="bool" label="Proxy használata" default="false"/>
+   <setting id="proxy_ipaddress" type="ipaddress" enable="eq(-1,true)" label="IP cím" default="0.0.0.0"/>
+   <setting id="proxy_port" type="integer" enable="eq(-2,true)" label="Port" default="8080"/>
+</settings>
